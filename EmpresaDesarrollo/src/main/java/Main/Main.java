@@ -7,6 +7,7 @@ import Modelo.Personaje;
 import Modelo.Mago;
 import Modelo.Guerrero;
 import Modelo.Caballero;
+import java.util.Scanner;
 /**
  *
  * @author Carlos
@@ -14,17 +15,46 @@ import Modelo.Caballero;
 public class Main {
     public static void main(String[] args){
         
-        Personaje p1 = new Personaje("Carlos", 200);
-        Mago m1 = new Mago("Matias", 150, 200);
-        Guerrero g1 = new Guerrero("Cristobal", 350, 200);
-        Caballero c1 = new Caballero("Martin", 300, 150, 200);
+        Scanner scanner = new Scanner(System.in);
         
-        p1.mostrarPersonaje();
-        System.out.println("============");
+        System.out.println("Escribe nombre Mago: ");
+        String nombreMago = scanner.nextLine();
+        
+        System.out.println("Escribe vida Mago: ");
+        int vidaMago = scanner.nextInt();
+        
+        System.out.println("Escribe mana Mago: ");
+        int manaMago = scanner.nextInt();
+        scanner.nextLine(); //
+        
+        Mago m1 = new Mago(nombreMago, vidaMago, manaMago);
+        System.out.println("====== CREAR MAGO ======");
         m1.mostrarMago();
-        System.out.println("============");
-        g1.mostrarGuerrero();
-        System.out.println("============");
+        
+        System.out.println("Escribe nombre Caballero: ");
+        String nombreCaballero = scanner.nextLine();
+        
+        System.out.println("Escribe vida Caballero: ");
+        int vidaCaballero = scanner.nextInt(); 
+        
+        System.out.println("Escribe fuerza Caballero: ");
+        int fuerzaCaballero = scanner.nextInt();
+        
+        System.out.println("Escribe armadura Caballero: ");
+        int armaduraCaballero = scanner.nextInt();
+        scanner.nextLine(); //
+        
+        Caballero c1 = new Caballero (nombreCaballero, vidaCaballero, fuerzaCaballero, armaduraCaballero);
+        System.out.println("====== CREAR CABALLERO ======");
         c1.mostrarCaballero();
+        
+        System.out.println("====== PERSONAJES CREADOS ======");
+        System.out.println("Mago:");
+        m1.mostrarMago();
+        System.out.println("======");
+        System.out.println("Caballero:");
+        c1.mostrarCaballero();
+        
+        scanner.close();
     }
 }
